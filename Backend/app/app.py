@@ -98,7 +98,7 @@ voa_module_set = voa_module_data_set(attenuation=0)
 async def websocket_send_data(ws: WebSocket, data: json):
     try:
         if ws is not None:
-            print(f"Sending data to: {ws} with data {data}")
+            # print(f"Sending data to: {ws} with data {data}")
             await asyncio.wait_for(ws.send_json(data), timeout=1.0)
     except Exception:
         return
@@ -107,10 +107,10 @@ async def websocket_send_data(ws: WebSocket, data: json):
 # FastAPI, jinja2
 # ------------------------------------------------------------------------------
 app = FastAPI()
-templates = Jinja2Templates(directory="Frontend/public")  # Future use
-app.mount("/static", StaticFiles(directory="Frontend/static"), name="static")
-app.mount("/public", StaticFiles(directory="Frontend/public"), name="public")
-app.mount("/img", StaticFiles(directory="Frontend/public/assets/img"), name="img")
+templates = Jinja2Templates(directory="/home/mihal/mm_edfa_web/Frontend/public")  # Future use
+app.mount("/static", StaticFiles(directory="/home/mihal/mm_edfa_web/Frontend/static"), name="static")
+app.mount("/public", StaticFiles(directory="/home/mihal/mm_edfa_web/Frontend/public"), name="public")
+app.mount("/img", StaticFiles(directory="/home/mihal/mm_edfa_web/Frontend/public/assets/img"), name="img")
 
 
 mqtt_config = MQTTConfig()
